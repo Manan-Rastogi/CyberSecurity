@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TCP, UDP and 3-way Handshake</title>
+</head><body><b><div style="text-align: center"><span style="color: #ff0000"><span style="font-family: Comic Sans MS"><span style="font-size: 14pt"><br/>
+</span></span></span></div></b><span style="font-family: Comic Sans MS"><b><div style="text-align: center"><span style="color: #ff0000"><span style="font-size: 14pt">TCP, UDP and 3-way Handshake[4th Layer]</span></span></div></b><span style="font-size: 12pt"><br/>
+</span><span style="font-size: 12pt"><hr/></span><b><span style="color: #007f00"><span style="font-size: 13pt">TCP (Transmission Control Protocol)</span></span></b><span style="font-size: 12pt">&nbsp;is a communication protocol used on the internet and local networks to ensure reliable and ordered delivery of data between devices. Here's a simple explanation of how TCP works:<br/>
+</span><span style="font-size: 12pt"><br/>
+<b><span style="color: #7f007f">1. Establishing Connection</span></b>: Before data can be exchanged, a connection must be established between the sender and receiver. This process involves a series of steps called the "TCP handshake," where both parties exchange control messages to agree on parameters for communication.<br/>
+<br/>
+<b><span style="color: #7f007f">2. Reliable Transmission</span></b>: Once the connection is established, data can be sent in the form of segments. TCP ensures reliability by numbering each segment and using acknowledgment messages. When the receiver receives a segment, it sends an acknowledgment back to the sender. If the sender doesn't receive an acknowledgment within a certain time frame, it retransmits the segment.<br/>
+<br/>
+<span style="color: #7f007f"><b>3. Ordered Delivery</b></span>: TCP guarantees that data segments arrive at the receiver in the same order they were sent. Each segment contains a sequence number, allowing the receiver to reassemble the data in the correct order.<br/>
+<br/>
+<span style="color: #7f007f"><b>4. Flow Control</b></span>: TCP prevents the sender from overwhelming the receiver with data by implementing flow control. The receiver specifies its buffer size, and the sender adjusts the rate of data transmission accordingly.<br/>
+<br/>
+<span style="color: #7f007f"><b>5. Connection Termination</b></span>: When data exchange is complete, the connection is terminated gracefully. This involves another series of messages to ensure that both parties are ready to close the connection.<br/>
+<br/>
+<span style="background-color: #e5e5e5"><span style="color: #000000">Overall, TCP provides a reliable, ordered, and error-checked connection between devices, making it suitable for applications where data integrity and sequence are crucial, such as web browsing, email, file transfer, and online gaming.</span></span><br/>
+<hr/><br/>
+</span><b><span style="font-size: 13pt"><span style="color: #007f00">UDP (User Datagram Protocol)</span></span></b><span style="font-size: 12pt">&nbsp;is a communication protocol used for sending and receiving data over a network. Unlike TCP, UDP is connectionless and does not guarantee reliable delivery of data. Here's a simple explanation of how UDP works:<br/>
+</span><span style="font-size: 12pt"><br/>
+<b><span style="color: #7f007f">1. Connectionless Communication</span></b>: UDP does not require a connection to be established before data can be sent. Instead, it allows applications to send data packets (datagrams) to a destination IP address and port without any prior setup.<br/>
+<br/>
+<b><span style="color: #7f007f">2. Unreliable Delivery</span></b>: Unlike TCP, UDP does not provide mechanisms for ensuring that data reaches its destination reliably. Once a datagram is sent, UDP does not track its delivery or retransmit lost packets. This makes UDP faster and more lightweight than TCP but also less reliable.<br/>
+<br/>
+<b><span style="color: #7f007f">3. No Ordering Guarantee</span></b>: UDP does not guarantee that datagrams will arrive at the destination in the same order they were sent. Each datagram is treated independently, and the order of delivery may vary.<br/>
+<br/>
+<b><span style="color: #7f007f">4. Low Overhead</span></b>: Because UDP does not include the overhead associated with establishing and maintaining connections or ensuring reliable delivery, it is often used for applications where speed and efficiency are more important than data integrity, such as real-time audio and video streaming, online gaming, DNS (Domain Name System) resolution, and network management protocols.<br/>
+<br/>
+<b><span style="color: #7f007f">5. Minimal Protocol Features</span></b>: UDP provides only basic functionality for sending and receiving datagrams. It does not include features like flow control, error correction, or congestion control, which are handled by higher-layer protocols or implemented in the application itself.<br/>
+<br/>
+<span style="color: #000000"><span style="background-color: #e5e5e5">In summary, UDP offers a simple and lightweight communication mechanism suitable for applications where speed and efficiency are prioritized over guaranteed delivery and data integrity. However, it may not be suitable for applications where reliability and ordered delivery are essential.</span></span><br/>
+<br/>
+<hr/><br/>
+</span><span style="font-size: 12pt">The </span><span style="color: #007f00"><span style="font-size: 13pt"><b>3-way handshake</b></span></span><span style="font-size: 12pt">&nbsp;is a process used by the <span style="color: #ffa300">TCP</span>&nbsp;(Transmission Control Protocol) to establish a connection between two devices over a network. Here's a simple explanation of how the 3-way handshake works:<br/>
+</span><span style="font-size: 12pt"><br/>
+<span style="color: #7f007f"><b>1. SYN (Synchronize)</b></span>:<br/>
+&nbsp; &nbsp;- The client sends a SYN packet to the server to initiate the connection request. The SYN packet contains a sequence number that identifies the initial sequence of data the client expects to receive from the server.<br/>
+&nbsp; &nbsp;- The client also chooses an initial sequence number for its own data, which is included in the SYN packet.<br/>
+<br/>
+<b><span style="color: #7f007f">2. SYN-ACK (Synchronize-Acknowledge)</span></b>:<br/>
+&nbsp; &nbsp;- Upon receiving the SYN packet, the server responds with a SYN-ACK packet. This packet acknowledges the client's SYN packet and includes its own SYN packet.<br/>
+&nbsp; &nbsp;- The server also assigns its own initial sequence number for data it expects to receive from the client, which is included in the SYN-ACK packet.<br/>
+<br/>
+<b><span style="color: #7f007f">3. ACK (Acknowledge)</span></b>:<br/>
+&nbsp; &nbsp;- Finally, the client responds to the server's SYN-ACK packet with an ACK packet. This packet acknowledges the server's SYN packet.<br/>
+&nbsp; &nbsp;- At this point, the connection is established, and both the client and server can start sending data to each other using TCP segments.<br/>
+<br/>
+<span style="background-color: #e5e5e5"><span style="color: #000000">In summary, the 3-way handshake allows both the client and server to agree on initial sequence numbers and establish a reliable connection before data transmission begins. This process helps ensure that data is exchanged accurately and in the correct order, minimizing the risk of errors or packet loss during communication.<br/>
+<ul><li style="list-style-type: none"></li>
+<li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><img src="image.png" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br/>
+<br/>
+</span></span></span></span><hr/><span style="color: #000000"><span style="background-color: #e5e5e5"><span style="font-family: Comic Sans MS"><span style="font-size: 12pt"></span></span></span></span><span style="color: #000000"><span style="background-color: #e5e5e5"><span style="font-family: Comic Sans MS"><span style="font-size: 12pt"><hr/><hr/></span></span></span><span style="font-family: Comic Sans MS"><span style="font-size: 12pt"><hr/><span style="background-color: #ffffff"></span><span style="background-color: #ffffff">*&#09;On Linux Kali &gt; Open Terminal &gt; wireshark&amp; &nbsp; &gt;&gt;&gt;&gt;&gt;&gt; You can see the Network Traffic here.<hr/><hr/><hr/><hr/><ul><li style="list-style-type: none"></li>
+</ul>
+<br/>
+</span></span></span></span><span style="font-family: Comic Sans MS"><span style="background-color: #ffffff"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><span style="font-size: 14pt"><span style="color: #ff0000"><b>## Common Ports And Protocols</b></span></span><span style="font-size: 12pt"><span style="color: #000000"></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span style="font-size: 12pt"><span style="color: #000000"></span></span><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><b><span style="font-size: 14pt"><span style="color: #ff0000">TCP</span></span></b><span style="font-size: 12pt"><span style="color: #000000"></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span style="font-size: 12pt"><span style="color: #0000ff"><b>1. FTP (21)</b></span><span style="color: #000000">: FTP (</span><span style="color: #ffa300">File Transfer Protocol</span><span style="color: #000000">) is a standard network protocol used to transfer files between a client and a server on a computer network. It operates over TCP/IP and allows users to upload, download, and manage files on a remote server securely.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">2. SSH (22)</span></b><span style="color: #000000">: SSH (</span><span style="color: #ffa300">Secure Shell</span><span style="color: #000000">) is a cryptographic network protocol used for secure communication between two computers. It provides encrypted connections and authentication mechanisms, allowing users to securely access and control remote machines over an unsecured network.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">3. Telnet (23)</span></b><span style="color: #000000">: Telnet is a network protocol that provides a command-line interface for remote access to another computer. It enables users to log in to a remote system and execute commands as if they were directly connected to the system's console. However, Telnet is insecure as it transmits data, including passwords, in plaintext.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">4. SMTP (25)</span></b><span style="color: #000000">: SMTP (</span><span style="color: #ffa300">Simple Mail Transfer Protocol</span><span style="color: #000000">) is a protocol used for sending email messages between servers. It defines the rules and format for transferring email messages from the sender's email client to the recipient's email server.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">5. DNS (53)</span></b><span style="color: #000000">: DNS (</span><span style="color: #ffa300">Domain Name System</span><span style="color: #000000">) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates domain names into IP addresses, enabling users to access websites and other resources using human-readable names.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">6. HTTP (80)/HTTPS (443)</span></b><span style="color: #000000">: HTTP (</span><span style="color: #ffa300">Hypertext Transfer Protocol</span><span style="color: #000000">) and HTTPS (</span><span style="color: #ffa300">HTTP Secure</span><span style="color: #000000">) are protocols used for transferring hypertext requests and responses between clients and servers over a network. HTTP operates over port 80, while HTTPS, which adds encryption using SSL/TLS, operates over port 443.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">7. POP3 (110)</span></b><span style="color: #000000">: POP3 (</span><span style="color: #ffa300">Post Office Protocol version 3</span><span style="color: #000000">) is a protocol used by email clients to retrieve email messages from a mail server. It allows users to download emails to their local device for offline access and storage.<br/>
+</span><span style="color: #000000"><br/>
+</span></span></span><span style="font-size: 12pt"><span style="background-color: #ffffff"><b><span style="color: #0000ff">8. SMB (139+445)</span></b><span style="color: #000000">: SMB (</span><span style="color: #ffa300">Server Message Block</span><span style="color: #000000">)</span></span>&nbsp;is a network protocol used for file sharing, printer services, and interprocess communication (IPC) between computers on a network, particularly in Windows-based environments<span style="color: #000000"><span style="background-color: #ffffff">. It operates over ports 139 and 445 and is commonly used in Windows environments for file and printer sharing.<br/>
+</span></span><span style="color: #000000"><span style="background-color: #ffffff"><br/>
+</span></span><span style="background-color: #ffffff"><b><span style="color: #0000ff">9. IMAP (143)</span></b><span style="color: #000000">: IMAP (</span><span style="color: #ffa300">Internet Message Access Protocol</span><span style="color: #000000">) is a protocol used by email clients to retrieve and manage email messages stored on a mail server. Unlike POP3, IMAP allows users to organize emails into folders on the server and synchronize email across multiple devices.<br/>
+</span><span style="color: #000000"><br/>
+<br/>
+<br/>
+</span></span></span><span style="background-color: #ffffff"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><ul><li style="list-style-type: none"><span style="color: #ff0000"><span style="font-size: 14pt"><b>UDP</b></span></span><span style="color: #000000"><span style="font-size: 12pt"></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<span style="color: #000000"><span style="font-size: 12pt"><br/>
+<br/>
+</span></span><span style="font-size: 12pt"><b><span style="color: #0000ff">1. DNS (53)</span></b><span style="color: #000000">: DNS (</span><span style="color: #ffa300">Domain Name System</span><span style="color: #000000">) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates domain names into IP addresses, enabling users to access websites and other resources using human-readable names. DNS operates over port 53 and uses both TCP and UDP protocols for communication.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">2. DHCP (67, 68)</span></b><span style="color: #000000">: DHCP (</span><span style="color: #ffa300">Dynamic Host Configuration Protocol</span><span style="color: #000000">) is a network management protocol used to automatically assign IP addresses and other network configuration settings to devices on a network. It operates over UDP and uses port 67 for DHCP server communication and port 68 for DHCP client communication. DHCP simplifies the administration of IP addresses and reduces the need for manual configuration.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">3. TFTP (69)</span></b><span style="color: #000000">: TFTP (</span><span style="color: #ffa300">Trivial File Transfer Protocol</span><span style="color: #000000">) is a simple file transfer protocol used for transferring files between a client and a server on a local network. It operates over UDP and uses port 69. TFTP is less complex than FTP and lacks authentication and security features, making it suitable for lightweight file transfer tasks, such as firmware updates and configuration file transfers.<br/>
+</span><span style="color: #000000"><br/>
+</span><b><span style="color: #0000ff">4. SNMP (161)</span></b><span style="color: #000000">: SNMP (</span><span style="color: #ffa300">Simple Network Management Protocol</span><span style="color: #000000">) is an Internet-standard protocol used for monitoring and managing network devices, such as routers, switches, servers, and printers. It operates over UDP and uses port 161 for communication between SNMP managers (clients) and SNMP agents (devices). SNMP allows network administrators to gather information about network devices, monitor performance, and configure devices remotely.<br/>
+</span><span style="color: #000000"><br/>
+<hr/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</span></span></span></span><ul><span style="font-family: Comic Sans MS"><span style="background-color: #ffffff"><span style="font-size: 12pt"><span style="color: #000000"><li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+<li style="list-style-type: none"></li>
+</span></span></span></span></ul>
+</body></html>

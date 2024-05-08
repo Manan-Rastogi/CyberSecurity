@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>MAC</string>
+  <key>nodeid</key><string>3eb3fda9-ff0a-48c7-ba25-8ed4308360df</string>
+  <key>modified_time</key><integer>1715179160</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1715171123</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>1</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>note-violet.png</string>
+</dict>
+</node>

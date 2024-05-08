@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>OSI Model</string>
+  <key>nodeid</key><string>cb7dc5c4-5a98-435a-b198-5263cf3b7132</string>
+  <key>modified_time</key><integer>1715180095</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1715178274</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>3</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>note-violet.png</string>
+</dict>
+</node>
